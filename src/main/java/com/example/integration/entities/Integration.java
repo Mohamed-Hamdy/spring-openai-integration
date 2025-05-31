@@ -15,15 +15,15 @@ public class Integration {
     private String techStack;
 
     @Column(columnDefinition = "TEXT")
-    private String learningPathRecommendation;
+    private String techStackRecommended;
 
     public Integration() {
     }
 
-    public Integration(String name, String techStack, String learningPathRecommendation) {
+    public Integration(String name, String techStack, String techStackRecommended) {
         this.name = name;
         this.techStack = techStack;
-        this.learningPathRecommendation = learningPathRecommendation;
+        this.techStackRecommended = techStackRecommended;
     }
 
     public Integer getId() {
@@ -50,12 +50,12 @@ public class Integration {
         this.techStack = techStack;
     }
 
-    public String getLearningPathRecommendation() {
-        return learningPathRecommendation;
+    public String getTechStackRecommended() {
+        return techStackRecommended;
     }
 
-    public void setLearningPathRecommendation(String learningPathRecommendation) {
-        this.learningPathRecommendation = learningPathRecommendation;
+    public void setTechStackRecommended(String techStackRecommended) {
+        this.techStackRecommended = techStackRecommended;
     }
 
     @Override
@@ -77,7 +77,7 @@ public class Integration {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", techStack='" + techStack + '\'' +
-                ", learningPathRecommendation='" + learningPathRecommendation + '\'' +
+                ", techStackRecommended='" + techStackRecommended + '\'' +
                 '}';
     }
 }

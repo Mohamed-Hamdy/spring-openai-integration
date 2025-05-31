@@ -30,17 +30,27 @@ public class IntegrationService {
     public void insertIntegration(Integration integration) {
         String prompt = String.format(
             """
-            Based on the programming tech stack %s that %s has given,
-            provide a full learning path and recommendations for this person.
+            A person named %s wants to become proficient in the following tech stack: %s.
+            
+            Please generate a structured and comprehensive learning path that includes:
+            - Core concepts to master
+            - Recommended tools and frameworks
+            - Free or paid learning resources (like courses or books)
+            - Real-world project ideas to practice
+            - Estimated learning duration or progression roadmap
+            - Any additional tips or best practices
+
+            Format the response with headings, bullet points, and clarity for easy understanding.
             """,
-            integration.getTechStack(),
-            integration.getName()
+            integration.getName(),
+            integration.getTechStack()
         );
 
         String chatResponse = chatService.getChatResponse(prompt);
-        integration.setLearningPathRecommendation(chatResponse);
+        integration.setTechStackRecommended(chatResponse);
         repository.save(integration);
     }
+
 
     /**
      * Get a single integration by its ID.
